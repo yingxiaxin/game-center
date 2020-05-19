@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+    </head>
+    <body>
+        <h1>socket.io 测试页面</h1>
+        <!-- <div style="width: 50px; height: 50px; background-color: #008c8c; position: absolute;" id='div'></div> -->
+        <script src="/socket.io/socket.io.js"></script>
+        <script>
+            // var dom = document.querySelector("#div");
+            // var x = 0, y = 0;
+
+            var socket = io.connect('http://localhost/');
+            socket.on('news', function (data) {
+                console.log(data);
+                socket.emit('my other event', { my: 'data' });
+
+                // update(data);
+            });
+
+
+            // function update(data) {
+            //     x = data.x;
+            //     y = data.y;
+            // }
+
+            // function domMove() {
+            //     dom.style.left = x + 'px';
+            //     dom.style.top = y + 'px';
+            //     console.log(top);
+            //     requestAnimationFrame(domMove);
+            // }
+            // domMove();
+
+        </script>
+    </body>
+</html>
